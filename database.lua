@@ -6,15 +6,16 @@ local ie = minetest.request_insecure_environment()
 if not ie then
 	error("[db_manager] Cannot access insecure environment!")
 end
---[=[
---local libpath = minetest.settings:get("mc_economy.lsqlite3_path") or ""
---package.cpath = "/usr/local/lib/lua/5.1/?.so"--..libpath
 
 local sql = ie.require("lsqlite3")
 -- Prevent other mods from using the global sqlite3 library
 if sqlite3 then
     sqlite3 = nil
 end
+
+--[=[
+--local libpath = minetest.settings:get("mc_economy.lsqlite3_path") or ""
+--package.cpath = "/usr/local/lib/lua/5.1/?.so"--..libpath
 
 local db = sql.open(worldpath .. "/mc_economy.sqlite")
 
