@@ -1,0 +1,17 @@
+{
+    "type": "MOD",
+    "title": "Database Manager",
+    "name": "db_manager",
+    "short_description": "Database Manager API",
+    "tags": ["library"],
+    "content_warnings": [],
+    "license": "GPLv3",
+    "media_license": "CC BY 4.0",
+    "long_description": [
+		"# Database Manager API"
+    ],
+    "repo": "https://github.com/minetest-palamod/db_manager",
+    "website": "https://github.com/minetest-palamod/db_manager",
+    "issue_tracker": "https://github.com/minetest-palamod/db_manager/issues",
+    "forums": null
+}
