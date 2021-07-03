@@ -35,6 +35,8 @@ Add `db_manager` to `secure.trusted_mods` setting in your `minetest.conf`
 This mod aims to remove the pain of working with databases.
 Mods can create databases without accessing insecure environment or messing with other mods databases and manage sql schemats freely.
 
+Checkout the `.exemples` folder for some exemple mods.
+
 ### `db_manager.database(name, schemat)`
 
 This function allow a mod to create or open a database.
