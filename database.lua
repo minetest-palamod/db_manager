@@ -1,6 +1,7 @@
 local log = minetest.log
 
 local string = string
+local table = table
 
 --create the tree where the database files will be stored
 local worldpath = minetest.get_worldpath()
@@ -29,10 +30,20 @@ function DbRef:new(name, db)
 	return setmetatable({name = name, db = db}, metatable)
 end
 
+--Execute a query with no output
 function DbRef:exec(q)
 	if self.db:exec(q) ~= sql.OK then
 		minetest.log("error", "[db_manager] ["..self.name.."]: lSQLite: "..self.db:errmsg())
 	end
+end
+
+--Get a row 
+function DbRef:get_rows(q)
+	local out = {}
+	for row in self.db:nrows(q) do
+		table.insert(out, row)
+	end
+	return out
 end
 
 setmetatable(DbRef, {__call = function(self, ...)
