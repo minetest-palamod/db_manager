@@ -7,7 +7,13 @@
     "content_warnings": [],
     "license": "GPLv3",
     "media_license": "CC BY 4.0",
-    "long_description": "# Database Manager API",
+    "long_description": [
+		"# Database Manager API",
+		"",
+		"This mod aims to provide a good and easy to use API for database managing",
+		"",
+		"[Checkout API here](https://github.com/minetest-palamod/db_manager)"
+	],
     "repo": "https://github.com/minetest-palamod/db_manager",
     "website": "https://github.com/minetest-palamod/db_manager",
     "issue_tracker": "https://github.com/minetest-palamod/db_manager/issues",
