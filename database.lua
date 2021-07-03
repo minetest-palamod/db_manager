@@ -33,11 +33,11 @@ end
 --Execute a query with no output
 function DbRef:exec(q)
 	if self.db:exec(q) ~= sql.OK then
-		minetest.log("error", "[db_manager] ["..self.name.."]: lSQLite: "..self.db:errmsg())
+		log("error", "[db_manager] ["..self.name.."]: lSQLite: "..self.db:errmsg())
 	end
 end
 
---Get a row 
+--Get query as table
 function DbRef:get_rows(q)
 	local out = {}
 	for row in self.db:nrows(q) do
@@ -81,7 +81,7 @@ local db = sql.open(worldpath .. "/mc_economy.sqlite")
 
 local function sql_exec(q)
 	if db:exec(q) ~= sql.OK then
-		minetest.log("error", "[mc_economy] lSQLite: " .. db:errmsg())
+		log("error", "[mc_economy] lSQLite: " .. db:errmsg())
 	end
 end
 
