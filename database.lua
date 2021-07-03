@@ -55,7 +55,7 @@ metatable.__index = DbRef
 
 function db_manager.database(name, schemat)
 	if active_databases[name] then
-		error(string.format("[db_manager] Database [%s] already existing", name))
+		error(string.format("[db_manager] [%s]: Database already existing", name))
 	end
 	local mod, id = string.match(name, "(.-):(.*)")
 	assert(mod)
@@ -66,8 +66,10 @@ function db_manager.database(name, schemat)
 	minetest.mkdir(worldpath.."/db_manager/"..mod)
 	local db = sql.open(worldpath.."/db_manager/"..mod.."/"..id..".sqlite")
 	local db_ref = DbRef:new(name, db)
+	log("action", string.format("[db_manager] [%s]: Successfully created", name))
 	if schemat then
 		db_ref:exec(schemat)
+		log("action", string.format("[db_manager] [%s]: Executing schemat...", name))
 	end
 	active_databases[name] = db
 	return db_ref
