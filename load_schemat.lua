@@ -1,15 +1,12 @@
 local shemats = {}
 
-for _,name in pairs(minetest.get_modnames()) do
-	local modpath = minetest.get_modpath(name)
-	for _,filename in pairs(minetest.get_dir_list(modpath.."/sql/", false)) do
-		shemats[name..":"..filename] = io.open(modpath.."/sql/"..filename, "r"):read()
-	end
-end
-
 function db_manager.get_schemat(name)
 	local modname, shem = string.match(name, "(.-):(.*)")
 	assert(modname)
 	assert(shem)
+	if shemats[name] then
+		return shemats[name]
+	end
+	shemats[name..":"..shem] = io.open(minetest.get_modpath(modname).."/sql/"..shem, "r"):read("*all")
 	return shemats[name]
 end
