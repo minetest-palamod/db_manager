@@ -72,29 +72,3 @@ function db_manager.database(name, schemat)
 	active_databases[name] = db
 	return db_ref
 end
-
---[=[
---local libpath = minetest.settings:get("mc_economy.lsqlite3_path") or ""
---package.cpath = "/usr/local/lib/lua/5.1/?.so"--..libpath
-
-local db = sql.open(worldpath .. "/mc_economy.sqlite")
-
-local function sql_exec(q)
-	if db:exec(q) ~= sql.OK then
-		log("error", "[mc_economy] lSQLite: " .. db:errmsg())
-	end
-end
-
-local function sql_row(q)
-	q = q .. " LIMIT 1;"
-	for row in db:nrows(q) do
-		return row
-	end
-end
-
-sql_exec([[
-	CREATE TABLE IF NOT EXISTS money(
-		player TEXT PRIMARY KEY NOT NULL,
-		amount INTEGER NOT NULL
-);]])
-]=]
