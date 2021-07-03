@@ -7,6 +7,6 @@ function db_manager.get_schemat(name)
 	if shemats[name] then
 		return shemats[name]
 	end
-	shemats[name] = io.open(minetest.get_modpath(modname).."/sql/"..shem, "r"):read("*all")
+	shemats[name] = io.open(minetest.get_modpath(modname).."/"..shem, "r"):read("*all")
 	return shemats[name]
 end
