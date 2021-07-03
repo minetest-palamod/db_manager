@@ -1,4 +1,4 @@
-local db = db_manager.database("db1:test", db_manager.get_schemat("db1:sql/test.sql"))
+local db = db_manager.database("db1:test", db_manager.get_schemat("db1:test.sql"))
 
 db:exec("INSERT INTO money VALUES ('playername', 500)")
 
