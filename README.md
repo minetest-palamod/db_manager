@@ -73,3 +73,12 @@ If `lsqlite3` returns an error, a error will be shown in log.
 #### `DbRef:get_rows(query)`
 
 This function execute query and returns a lua table.
+
+## Settings
+
+### `db_manager.error_level`
+
+This setting allow you to choose between two behaviour then a database error is catched:
+
+* log: the error will just be thrown in log
+* error: the error will cause a hard crash
