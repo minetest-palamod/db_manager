@@ -1,0 +1,5 @@
+#    Error Level
+#    log: just throw error in log
+#    error: cause a hard crash
+#    default: log
+db_manager.error_level (Error Level) enum log log,error

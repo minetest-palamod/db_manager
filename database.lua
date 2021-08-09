@@ -3,6 +3,18 @@ local log = minetest.log
 local string = string
 local table = table
 
+local error_level = minetest.settings:get("db_manager.error_level") or "log"
+
+local function manage_error(name, error_msg)
+	if error_level == "log" then
+		--just log the error
+		log("error", "[db_manager] ["..name.."]: lSQLite: "..error_msg)
+	elseif error_level == "error" then
+		--cause a hard crash
+		error("[db_manager] ["..name.."]: lSQLite: "..error_msg)
+	end
+end
+
 --create the tree where the database files will be stored
 local worldpath = minetest.get_worldpath()
 minetest.mkdir(worldpath.."/db_manager/")
@@ -33,7 +45,7 @@ end
 --Execute a query with no output
 function DbRef:exec(q)
 	if self.db:exec(q) ~= sql.OK then
-		log("error", "[db_manager] ["..self.name.."]: lSQLite: "..self.db:errmsg())
+		manage_error(self.name, self.db:errmsg())
 	end
 end
 
