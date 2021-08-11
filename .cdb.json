@@ -3,7 +3,7 @@
 	"title": "Database Manager",
 	"name": "db_manager",
 	"short_description": "Database Manager API",
-	"tags": ["library"],
+	"tags": ["library", "complex_installation"],
 	"content_warnings": [],
 	"license": "GPL-3.0-or-later",
 	"media_license": "GPL-3.0-or-later",
