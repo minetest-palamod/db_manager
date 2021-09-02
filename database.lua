@@ -80,8 +80,9 @@ function db_manager.database(name, schemat)
 	local db_ref = DbRef:new(name, db)
 	log("action", string.format("[db_manager] [%s]: Successfully created", name))
 	if schemat then
-		db_ref:exec(schemat)
 		log("action", string.format("[db_manager] [%s]: Executing schemat...", name))
+		db_ref:exec(schemat)
+		log("action", string.format("[db_manager] [%s]: Schemat executed", name))
 	end
 	active_databases[name] = db
 	return db_ref
