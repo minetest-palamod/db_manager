@@ -37,7 +37,7 @@ Mods can create databases without accessing insecure environment or messing with
 
 Checkout the `.exemples` folder for some exemple mods.
 
-### `db_manager.database(name, schemat)`
+### `db_manager.database(name[, schemat])`
 
 This function allow a mod to create or open a database.
 
@@ -52,7 +52,7 @@ This function can get any sql shemat from any mod as a string.
 
 * name: in the form "modname:filename"
 
-The function will search the file in the `sql` directory of the path of the modname and return it as a string.
+The function will search the file and return it as a string.
 
 ### `DbRef`
 
